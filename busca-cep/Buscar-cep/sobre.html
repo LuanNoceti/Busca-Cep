@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Importa o Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Modifica a cor de fundo -->
+    <link rel="stylesheet" href="cor_fundo.css" />
+    <!-- CSS clássico -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- INÍCIO DO CONTAINER DE NAV + MAIN + FOOTER -->
+    <!-- classes:
+      min-vh-100: Equivalente a min-height: 100vh;
+      d-flex: Equivalente a display: flex;
+      flex-column: Equivalente a flex-direction: column; 
+    -->
+    <div class="min-vh-100 d-flex flex-column">
+      <!-- INÍCIO DA NAVBAR -->
+      <!-- classes:
+        navbar: Faz ser uma barra de navegação;
+        navbar-expand-md: Do tamanho md (medium) pra cima, a navbar fica normal, dali pra baixo ela colapsa, esse colapso é o que vai fazer aquele menu sanduíche aparecer;
+        text-bg-dark: Deixa o fundo escuro e o texto claro;
+        navbar-dark: Função similar, mas feito para a navbar.
+      -->
+      <nav class="navbar navbar-expand-md text-bg-dark navbar-dark">
+        <!-- classes:
+        container-fluid: Cria um container que fica bem próximo das bordas da tela
+       -->
+        <div class="container-fluid">
+          <!-- classes:
+          navbar-brand: É para adicionar aquela logo no canto esquerdo da navbar que todo site tem, como eu quero que seja clicável, coloquei numa tag <a>, mas poderia ser em outra, tipo a <span>;
+          h1: Formata o texto como se fosse uma tag <h1>;
+          mb-0: A tag <h1> tem margem abaixo, eu não quero que tenha nesse caso, então usei a abreviação de margin-bottom (mb) e especifiquei o valor 0, esse valor varia de 0 a 5.
+        -->
+          <a href="index.html" class="navbar-brand h1 mb-0">
+            <!-- classes:
+            mb-1: Adiciona margin-bottom (mb) de 1, para saber o tamanho disso, entenda que o Bootstrap usa uma variável que é o equivalente ao rem, se você passa 1, é 0.25rem, 2 é 0.5, 3 é 1rem, 4 é 1.5rem e 5 é 3rem, nesse caso como não editei nada, o rem é 16px.
+          -->
+            <img
+              src="images/lupa-branca.svg"
+              width="35px"
+              class="mb-1"
+              alt="Lupa"
+            />
+            Buscador de Cep
+          </a>
+          <!-- classes:
+          navbar-toggler: Especifica que esse botão que vai ser o que vai controlar menu sanduíche da navbar.
+        atributos:
+          data-bs-toggle: Especifica a ação que esse botão vai fazer;
+          data-bs-target: Especifica o alvo dessa ação;
+          aria-controls: Atributos que começam com aria tem relação com semântica para leitores de tela, esse descreve o que esse botão controla, nesse caso, passei o id da barra de navegação ;
+          aria-label: Descreve a ação.
+        -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-label="Expand Navegation"
+          >
+            <!-- classes:
+          navbar-toggler-icon: Marca onde o ícone do menu sanduíche vai aparecer, só o botão não é suficiente 
+        -->
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- classes:
+          collapse: Collapse é aquele item que abre e fecha tipo sanfona, aqui to fizendo que os links da barra de navegação serão assim;
+          navbar-collapse: Especifica mais ainda o tipo de collapse.
+        id:
+          existe para conectar com o botão que fará isso colapsar ou não em telas menores.
+        -->
+          <div class="collapse navbar-collapse" id="nav">
+            <!-- classes:
+            navbar-nav: Parece confuso, mas essa classe indica que parte da navbar contém os itens para navegar (links), nesse caso, o Bootstrap chamou essa parte de nav. 
+          -->
+            <ul class="navbar-nav">
+              <!-- classes:
+              nav-item: Indica que esse é um dos itens da nav. 
+            -->
+              <li class="nav-item">
+                <!-- classes:
+                nav-link: Indica que isso é um link de nav, ele adequa a estética sozinho;
+                active: Diz que esse é o link que deve ficar brilhando mais claro para indicar "você está aqui".
+              -->
+                <a href="index.html" class="nav-link"
+                  >Início</a
+                >
+              </li>
+              <!-- classes:
+              nav-item: Indica que esse é um dos itens da nav. 
+            -->
+              <li class="nav-item">
+                <!-- classes:
+                nav-link: Indica que isso é um link de nav, ele adequa a estética sozinho. 
+              -->
+                <a href="buscar.html" class="nav-link">Buscar Cep</a>
+              </li>
+              <!-- classes:
+              nav-item: Indica que esse é um dos itens da nav. 
+            -->
+              <li class="nav-item">
+                <!-- classes:
+                nav-link: Indica que isso é um link de nav, ele adequa a estética sozinho. 
+              -->
+                <a href="sobre.html" class="nav-link active" aria-current="page">Sobre</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- FIM DA NAVBAR -->
+
+      <!-- INÍCIO DA MAIN -->
+      <!-- classes:
+        container-fluid: Faz aquele container que vai até os cantos;
+        bg-image: Define que essa tag vai ter uma background-image;
+        text-bg-dark: Define que o fundo vai ser escuro e o texto vai se adequar a isso;
+        flex-grow-1: Essa propriedade no CSS faz com que um elemento varie mais de tamanho quando damos ou tiramos zoom que os outros da flexbox, nesse caso, estou fazendo isso para que a main ocupe o espaço que sobrou da tela, fazendo o rodapé colar no final da página, contemplem o magoooo;
+        d-flex: Equivalente ao display: flex;
+        align-items-center: Equivalente ao align-items: center;
+        justify-content-center: Equivalente ao justify-content: center; Estou fazendo isso pois quero centralizar o conteúdo principal da main bem no meio dela (no caso, estou centralizando a div onde os itens estão).
+      atributos:
+        id: Coloquei id pois no style.css estamos modificando a imagem de fundo.
+      -->
+      <main
+        class="container-fluid bg-image text-bg-dark flex-grow-1 d-flex align-items-center justify-content-center"
+        id="main"
+      >
+        <!-- INÍCIO DA DIV COM TODO O CONTEÚDO DA MAIN -->
+        <!-- classes:
+        px-4: Padding no eixo x (left e right) de tamanho 4;
+        py-5: Padding no eixo y (top e bottom) de tamanho 5;
+        mb-3: Margin-bottom de tamanho 3;
+        text-center: Text-align: center; 
+      -->
+        <div class="px-4 py-5 mb-3 text-center">
+          <!-- classes:
+            mb-4: Margin-bottom de tamanho 4;
+          -->
+          <img
+            class="mb-4"
+            src="images/lupa-branca.svg"
+            alt="Lupa"
+            width="120px"
+          />
+          <!-- classes:
+            display-5: display é um tipo de formatação de títulos do Bootstrap, nesse caso no tamanho 5;
+            fw-bold: Abrevição de font-weight: bold;
+          -->
+          <h1 class="display-5 fw-bold">Buscador de Cep</h1>
+          <!-- classes:
+            col-lg-6: em telas de tamanho large pra cima, essa div (que tem todo o conteúdo principal) vai ocupar 6 das 12 colunas do Bootstrap;
+            col-sm-8: Em telas small pra cima (no caso, só small e medium) essa div ocupará 8 de 12;
+            col-10: Em telas muito pequenas, ocupará 10 de 12;
+            mx-auto: Faz com que os itens fiquem centralizados (é o equivalente a colocar margin: auto; na esquerda e na direita);
+          -->
+          <div class="col-lg-6 col-sm-8 col-10 mx-auto">
+            <!-- classes:
+              lead: Formatação para parágrafos que se destacam;
+              mb-4: Margin-bottom de tamanho 4;
+            -->
+            <p class="lead mb-4">
+              Buscar CEP nunca foi tão simples. Digite seu endereço e deixe que
+              nossa ferramenta faça o trabalho pesado para você.
+            </p>
+            <!-- classes:
+               d-grid: Faz a div ter display grid, a aplicação prática disso é os botões terem tamanhos fixos em telas de celular;
+               d-sm-flex: Em telas small pra cima, o display é flex, ou seja, aquele d-grid de cima é só pra telas muito pequenas, o resto é flex;
+               gap-2: Gap é o espaçamento entre elementos do display flex ou display grid, nesse caso, entre os dois botões;
+               justify-content-sm-center: Do small pra cima (que é quando o display flex se aplica) os itens ficam justificados no centro.
+            -->
+            <div class="d-grid d-sm-flex gap-2 justify-content-sm-center">
+              <!-- classes:
+                btn: Define que isso é um botão;
+                btn-primary: Define a cor do botão, nesse caso, primary, que é um azul;
+                btn-lg: Faz o botão ficar maior (button large);
+                px-4: Padding no eixo x de valor 4;
+              atributos:
+                onclick: esse é um evento de JS que faz com que, ao clicar no botão, aconteça algo, nesse caso, ir para a página especificada;
+              -->
+              <button
+                type="button"
+                class="btn btn-primary btn-lg px-4"
+                onclick="window.location.href='./buscar.html';"
+              >
+                Buscar Agora
+              </button>
+              <!-- classes:
+                btn: Define que isso é um botão;
+                btn-outline-secondary: Define a cor do botão, nesse caso só o contorno na cor secondary, que é um cinza;
+                btn-lg: Faz o botão ficar maior (button large);
+                px-4: Padding no eixo x de valor 4;
+              atributos:
+                onclick: esse é um evento de JS que faz com que, ao clicar no botão, aconteça algo, nesse caso, ir para a página especificada;
+              -->
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-lg px-4"
+                onclick="window.location.href='./sobre.html';"
+              >
+                Saiba Mais
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- FIM DA DIV COM TODO O CONTEÚDO DA MAIN -->
+      </main>
+      <!-- FIM DA MAIN -->
+
+      <!-- INÍCIO DO FOOTER -->
+      <!-- classes:
+        text-center: Alinha o texto no centro;
+        text-bg-dark: Deixa o fundo escuro e o texto com uma cor que contraste.
+      -->
+      <footer class="text-center text-bg-dark">
+        <!-- classes:
+          container: Cria um container que tem um espaçamento em relação às bordas laterais da página;
+          pt-4: padding-top de tamanho 4; 
+          mb-4: margin-bottom de tamanho 4.
+        -->
+        <section class="container pt-4 mb-4">
+          <!-- classes:
+            icon-link: Formata da forma padrão para quando é um link na forma de ícone;
+            link-light: Formata links na cor clara;
+            link-opacity-50-hover: Faz com que, ao passar por cima do link com o mouse (hover), a opacidade do link reduza para 50%;
+            mx-2: Margin no eixo x valendo 2;
+          -->
+          <a href="#" class="icon-link link-light link-opacity-50-hover mx-2">
+            <!-- classes:
+              bi: Bootstrap Icon;
+              bi-facebook: Classe do icon do Facebook
+            -->
+            <i class="bi bi-facebook"></i>
+          </a>
+          <!-- classes:
+            icon-link: Formata da forma padrão para quando é um link na forma de ícone;
+            link-light: Formata links na cor clara;
+            link-opacity-50-hover: Faz com que, ao passar por cima do link com o mouse (hover), a opacidade do link reduza para 50%;
+            mx-2: Margin no eixo x valendo 2;
+          -->
+          <a href="#" class="icon-link link-light link-opacity-50-hover mx-2">
+            <!-- classes:
+              bi: Bootstrap Icon;
+              bi-whatsapp: Classe do icon do Whatsapp
+            -->
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <!-- classes:
+            icon-link: Formata da forma padrão para quando é um link na forma de ícone;
+            link-light: Formata links na cor clara;
+            link-opacity-50-hover: Faz com que, ao passar por cima do link com o mouse (hover), a opacidade do link reduza para 50%;
+            mx-2: Margin no eixo x valendo 2;
+          -->
+          <a href="#" class="icon-link link-light link-opacity-50-hover mx-2">
+            <!-- classes:
+              bi: Bootstrap Icon;
+              bi-instagram: Classe do icon do Instagram
+            -->
+            <i class="bi bi-instagram"></i>
+          </a>
+          <!-- classes:
+            icon-link: Formata da forma padrão para quando é um link na forma de ícone;
+            link-light: Formata links na cor clara;
+            link-opacity-50-hover: Faz com que, ao passar por cima do link com o mouse (hover), a opacidade do link reduza para 50%;
+            mx-2: Margin no eixo x valendo 2;
+          -->
+          <a href="#" class="icon-link link-light link-opacity-50-hover mx-2">
+            <!-- classes:
+              bi: Bootstrap Icon;
+              bi-linkedin: Classe do icon do Linkedin
+            -->
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <!-- classes:
+            icon-link: Formata da forma padrão para quando é um link na forma de ícone;
+            link-light: Formata links na cor clara;
+            link-opacity-50-hover: Faz com que, ao passar por cima do link com o mouse (hover), a opacidade do link reduza para 50%;
+            mx-2: Margin no eixo x valendo 2;
+          -->
+          <a href="#" class="icon-link link-light link-opacity-50-hover mx-2">
+            <!-- classes:
+              bi: Bootstrap Icon;
+              bi-github: Classe do icon do GitHub
+            -->
+            <i class="bi bi-github"></i>
+          </a>
+        </section>
+        <!-- classes:
+          text-center: Alinha o texto no centro;
+          py-3: Padding no eixo y de 3. 
+        -->
+        <div class="text-center py-3">© 2024 Copyright: Buscador de Cep</div>
+      </footer>
+      <!-- FIM DO FOOTER -->
+    </div>
+    <!-- FIM DO CONTAINER DE NAV + MAIN + FOOTER -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

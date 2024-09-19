@@ -1,0 +1,5 @@
+/* Isso é um seletor de pseudo-classe */
+:root {
+  /* Isso é uma propriedade customizada do próprio Bootstrap, nesse caso, altera a cor de fundo */
+  --bs-body-bg: rgba(33, 37, 41, 0.75);
+}
